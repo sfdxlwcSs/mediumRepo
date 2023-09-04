@@ -1,0 +1,122 @@
+<!--
+  @description       : 
+  @author            : SOMNATH SHARMA
+  @group             : 
+  @last modified on  : 09-03-2023
+  @last modified by  : SOMNATH SHARMA
+-->
+<template>
+	<lightning-input type="text" label="Write Something To Hear It" value={testvalue} onkeypress={handleEnter}>
+	</lightning-input>
+<div class="slds-m-bottom_xx-small">
+	<lightning-input type="text" label="You Said" value={searchKey}>
+	</lightning-input>
+	<lightning-button variant="brand" label="Say  Something" title="Say  Something" onclick={handleClick}
+		class="slds-m-left_x-small"></lightning-button>
+	<lightning-button variant="brand" label="Stop" title="Stop" onclick={handleClickToStop} class="slds-m-left_x-small">
+	</lightning-button>
+	</div>
+	<div class="slds-m-top_small slds-card">
+		<div class="exampleHolder" if:true={_showSpinner}>
+			<lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+		</div>
+		<template lwc:if={speechToTextDataFound}>
+			<div class="slds-border_bottom">
+				<template lwc:if={showAccounts}>
+					<lightning-card title="Account Data" icon-name="standard:account" >
+						<lightning-button label="New" slot="actions" onclick={handleCardAction} data-buttonname='Account'></lightning-button>
+						<div if:true={_speechDBAcc} class="slds-m-around_medium">
+							<ul class="slds-list_dotted">
+							<template for:each={_speechDBAcc} for:item="acc">
+								<li key={acc.Id} data-accid={acc.Id} onclick={handleAccClick}><a>{acc.Name}</a></li>
+							</template>
+						</ul>
+						</div>
+						<div slot="footer">
+							<a class="slds-card__footer-action" href="#"
+								>View All
+								<span class="slds-assistive-text">Accounts</span>
+							</a>
+						</div>
+					</lightning-card>
+				</template>
+				<template lwc:else>
+				   No Accounts Found.
+				</template>
+			</div>
+			<div class="slds-border_bottom">
+				<template lwc:if={showContacts}>
+					<lightning-card title="Contacts Data" icon-name="standard:contact_list" >
+						<lightning-button label="New" slot="actions" onclick={handleCardAction} data-buttonname='Contact'></lightning-button>
+						<div if:true={_speechDBCon} class="slds-m-around_medium">
+							<ul class="slds-list_dotted">
+							<template for:each={_speechDBCon} for:item="con">
+								<li key={con.Id} data-conid={con.Id} onclick={handleContactClick}><a>{con.FirstName}</a></li>
+							</template>
+							</ul>
+							</div>
+							<div slot="footer">
+								<a class="slds-card__footer-action" href="#"
+									>View All
+									<span class="slds-assistive-text">Accounts</span>
+								</a>
+							</div>
+					</lightning-card>
+				</template>
+				<template lwc:else>
+				   No Contacts Found.
+				</template>
+			</div>
+			<div class="slds-border_bottom">
+				<template lwc:if={showOpportunities}>
+					<lightning-card title="Opportunity Data" icon-name="standard:opportunity" >
+						<lightning-button label="New" slot="actions" onclick={handleCardAction} data-buttonname='Opportunity'></lightning-button>
+						<div if:true={_speechDBOpp} class="slds-m-around_medium">
+							<ul class="slds-list_dotted">
+							<template for:each={_speechDBOpp} for:item="opp">
+							<li key={opp.Id} data-oppid={opp.Id}  onclick={handleOpportunityClick}><a>{opp.Name}</a></li>
+							</template>
+							</ul>
+						</div>
+						<div slot="footer">
+							<a class="slds-card__footer-action" href="#"
+								>View All
+								<span class="slds-assistive-text">Accounts</span>
+							</a>
+						</div>
+					</lightning-card>
+				</template>
+				<template lwc:else>
+				   No Opportunities Found.
+				</template>
+			</div>
+			<div class="slds-border_bottom">
+				<template lwc:if={showLeads}>
+					<lightning-card title="Lead Data" icon-name="standard:lead_list" >
+						<lightning-button label="New" slot="actions" onclick={handleCardAction} data-buttonname='Lead'></lightning-button>
+						<div if:true={_speechDBLead} class="slds-m-around_medium">
+							<ul class="slds-list_dotted">
+							<template for:each={_speechDBLead} for:item="l">
+							<li key={l.Id} data-leadid={l.Id}  onclick={handleLeadClick}><a>{l.FirstName}</a></li>
+							</template>
+							</ul>
+						</div>
+						<div slot="footer">
+							<a class="slds-card__footer-action" href="#"
+								>View All
+								<span class="slds-assistive-text">Accounts</span>
+							</a>
+						</div>
+					</lightning-card>
+				</template>
+				<template lwc:else>
+				   No Leads Found.
+				</template>
+			</div>
+		</template>
+		<template lwc:else>
+			No Data Found Found.
+		 </template>
+	
+</div>
+</template>
