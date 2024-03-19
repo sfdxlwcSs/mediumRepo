@@ -1,8 +1,31 @@
+<!--
+  @description       : 
+  @author            : SOMNATH SHARMA
+  @group             : 
+  @last modified on  : 03-20-2024
+  @last modified by  : SOMNATH SHARMA
+-->
 <template>
-    <lightning-button-group>
-        <lightning-button label="Get Accounts Async/Await" onclick={handleGetAccountsAsyncAwait}></lightning-button>
-        <lightning-button label="Get Contacts Async/Await" onclick={handleGetContactsAsyncAwait}></lightning-button>
-        <lightning-button label="Normal Call Handling Promise" onclick={handlePromise}></lightning-button>
-        <lightning-button label="Promise Chaining" onclick={handlePromiseChaining}></lightning-button>
-    </lightning-button-group>
+  <lightning-button-group>
+    <lightning-button
+      label="Normal Call Handling Promise"
+      onclick="{handlePromise}"
+    ></lightning-button>
+    <lightning-button
+      label="Get Accounts Async/Await"
+      onclick="{handleGetAccountsAsyncAwait}"
+    ></lightning-button>
+    <lightning-button
+      label="Get Contacts Async/Await"
+      onclick="{handleGetContactsAsyncAwait}"
+    ></lightning-button>
+    <lightning-button
+      label="Promise Chaining"
+      onclick="{handlePromiseChaining}"
+    ></lightning-button>
+    <lightning-button
+      label="Parallel Execution Async/Await"
+      onclick="{handleParallelExecution}"
+    ></lightning-button>
+  </lightning-button-group>
 </template>
