@@ -5,11 +5,42 @@ import allContacts from '@salesforce/apex/demoClass.getAllContacts'
 
 export default class AsyncawaitPOC extends LightningElement {
 
+
+
     @track contacts = [];
     @track accts = [];
 
     connectedCallback() {
         //code
+    }
+
+    // Understanding Promises and Promise Resolving:
+    // Promises are objects representing the eventual completion or failure of an asynchronous operation. 
+    //They provide a cleaner alternative to callback-based approaches and allow for easier management of asynchronous code. 
+    //In LWC, promises are frequently used when making asynchronous server calls using Apex methods or fetching data
+    // from external APIs.
+
+    // Handling Promise Resolving with .then():
+    // When a promise successfully resolves, the .then() method is called, providing access to the resolved value. 
+    //Within the .then() block, you can specify the actions to be performed with the resolved data.
+    // This could include processing the data, updating UI elements, or triggering subsequent asynchronous operations.
+
+    //Please note console.log('Executed before Promise is resolved.'); will be printed first then 
+    // console.log('Accounts fetched successfully: ' + JSON.stringify(data)); once promise is resolved
+    // Example of .then() Block:
+    handlePromise() {
+        allAcc()
+            .then((data) => {
+                // This block is executed when the promise resolves successfully
+                console.log('Accounts fetched successfully: ' + JSON.stringify(data));
+                // Perform actions with the fetched data
+            })
+            .catch((error) => {
+                // Handle errors if the promise is rejected
+                console.error('Error fetching accounts: ' + JSON.stringify(error));
+            })
+
+        console.log('Executed before Promise is resolved.');
     }
 
     // When await allAcc() is encountered, it will wait for the promise returned by allAcc() to resolve. 
