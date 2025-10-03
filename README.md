@@ -35,6 +35,6 @@
 <ul>
   <li><strong>Email:</strong> <a href="mailto:somnath1690@gmail.com">somnath1690@gmail.com</a></li>
   <li><strong>GitHub:</strong> <a href="https://github.com/sfdxlwcSs">GitHub Profile</a></li>
-  <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/somnath1690/">LinkedIn Profile</a></li>
+  <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ssharmaarch/">LinkedIn Profile</a></li>
   <li><strong>Salesforce Trailhead:</strong> <a href="https://www.salesforce.com/trailblazer/ssharmatrailblazer">Trailhead Profile</a></li>
 </ul>
